@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.cassandra.CassandraProperties;
 import org.springframework.data.jpa.domain.JpaSort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +30,7 @@ public class GuestController {
     public List<Guest> getGuests(){
         return guestService.getGuests();
     }
+
     @GetMapping("{id}")
     public ResponseEntity<Guest> getGuestById(@PathVariable("id") Long id){
         return new ResponseEntity<Guest>(guestService.getGuestById(id), HttpStatus.FOUND);
