@@ -27,35 +27,49 @@
         </div>
     </div>
 </nav>
-<form method="post" th:action="@{/guests}">
+<form method="post" th:action="@{/hotels}">
     <section class="panel">
-    <div>
-        <label class="control-label col-sm-4 text-light">First name</label>
         <div>
-            <input name="firstName" class="form-control" size="16" type="text">
+            <label class="control-label col-sm-4 text-light">Name</label>
+            <div>
+                <input name="name" class="form-control" size="16" type="text">
+            </div>
         </div>
-    </div>
 
-    <div>
-        <label class="control-label col-sm-4 text-light">Last name</label>
         <div>
-            <input name="lastName" class="form-control" size="16" type="text">
+            <label class="control-label col-sm-4 text-light">Address</label>
+            <div>
+                <input name="address" class="form-control" size="16" type="text">
+            </div>
         </div>
-    </div>
 
-    <div>
-        <label class="control-label col-sm-4 text-light">Email</label>
         <div>
-            <input name="email" class="form-control" size="16" type="email">
+            <label class="control-label col-sm-4 text-light">City</label>
+            <div>
+                <input name="city" class="form-control" size="16" type="text">
+            </div>
         </div>
-    </div>
+
+        <div>
+            <label class="control-label col-sm-4 text-light">Country</label>
+            <div>
+                <input name="country" class="form-control" size="16" type="text">
+            </div>
+        </div>
+
+        <div>
+            <label class="control-label col-sm-4 text-light">Star rating</label>
+            <div>
+                <input name="starRating" class="form-control" size="16" type="number">
+            </div>
+        </div>
     </section>
 
     <section class="panel-body">
-    <div>
-        <button type="submit" class="btn btn-success">Save</button>
-        <a href="/guests" class="btn btn-warning">Exit</a>
-    </div>
+        <div>
+            <button type="submit" class="btn btn-success">Save</button>
+            <a href="/hotels" class="btn btn-warning">Exit</a>
+        </div>
     </section>
 </form>
 </body>
