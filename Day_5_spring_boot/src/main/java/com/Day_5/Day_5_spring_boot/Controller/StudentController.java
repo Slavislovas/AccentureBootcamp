@@ -44,7 +44,7 @@ public class StudentController {
         }
     }
 
-    @DeleteMapping("/deleteStudent/{id}")
+    @RequestMapping(value = "/deleteStudent/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
     public ResponseEntity<String> deleteStudent(@PathVariable("id") Long id){
         try{
         studentService.deleteStudent(id);
