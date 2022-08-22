@@ -14,7 +14,12 @@ class BankAccountTest {
                 () -> assertEquals(150.20, account.deposit(100.20)));
     }
 
-
+    @Test
+    void withdraw() {
+        BankAccount account = new BankAccount(100);
+        assertAll( () -> assertEquals(50, account.withdraw(50)),
+                () -> assertEquals(-1, account.withdraw(51)));
+    }
 
     @Test
     void transferFrom() {
@@ -23,7 +28,7 @@ class BankAccountTest {
         firstAccount.transferFrom(secondAccount, 500);
 
         assertAll( () -> assertEquals(0, secondAccount.getBalance()),
-                   () -> assertEquals(500, firstAccount.getBalance()));
+                () -> assertEquals(500, firstAccount.getBalance()));
 
         secondAccount.transferFrom(firstAccount, 501);
 
