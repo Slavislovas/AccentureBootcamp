@@ -23,7 +23,6 @@ public class Vehicle {
         this.maxSpeed = maxSpeed;
     }
 
-
     public String getManufacturer() {
         return manufacturer;
     }
@@ -64,24 +63,27 @@ public class Vehicle {
         this.maxSpeed = maxSpeed;
     }
 
-    public void accelerate(int speed){
+    public int accelerate(int speed){
         if(currentSpeed + speed > maxSpeed){
             System.out.println("Your current speed is " + currentSpeed + " you cannot accelerate " + speed + " as you will go over the max speed");
-            return;
+            return -1;
         }
         currentSpeed += speed;
+        return currentSpeed;
     }
 
-    public void decelerate(int speed){
+    public int decelerate(int speed){
         if(currentSpeed - speed < 0){
             System.out.println("Your current speed is " + currentSpeed + ", you cannot decelerate " + speed);
-            return;
+            return -1;
         }
         currentSpeed -= speed;
+        return currentSpeed;
     }
 
-    public void changeGears(String gear){
+    public String changeGears(String gear){
         currentGear = gear;
+        return currentGear;
     }
 
     public String toString(){
