@@ -40,16 +40,32 @@ public class EmployeeController {
 
     @PostMapping("/newEmployee")
     public ResponseEntity<Integer> addEmployee(@RequestBody Employee employee){
-        return new ResponseEntity<Integer>(employeeService.addEmployee(employee), HttpStatus.OK);
+        try {
+            return new ResponseEntity<Integer>(employeeService.addEmployee(employee), HttpStatus.OK);
+        }
+        catch (SQLException e){
+            System.out.println(e.getMessage());
+            return new ResponseEntity<Integer>(0, HttpStatus.CONFLICT);
+        }
     }
 
     @DeleteMapping("/deleteEmployee/{number}")
     public ResponseEntity<Integer> deleteEmployee(@PathVariable int number){
-        return new ResponseEntity<Integer>(employeeService.deleteEmployee(number), HttpStatus.OK);
+        try {
+            return new ResponseEntity<Integer>(employeeService.deleteEmployee(number), HttpStatus.OK);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return new ResponseEntity<Integer>(0, HttpStatus.CONFLICT);
+        }
     }
 
     @PutMapping("/updateEmployee/{number}")
     public ResponseEntity<Integer> updateEmployee(@PathVariable("number") int number, @RequestBody Employee employee){
-        return new ResponseEntity<Integer>(employeeService.updateEmployee(number, employee), HttpStatus.OK);
+        try {
+            return new ResponseEntity<Integer>(employeeService.updateEmployee(number, employee), HttpStatus.OK);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return new ResponseEntity<Integer>(0, HttpStatus.CONFLICT);
+        }
     }
 }
